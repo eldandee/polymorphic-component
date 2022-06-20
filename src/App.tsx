@@ -1,21 +1,24 @@
 import { useState } from "react";
-import { Button } from "./components";
+import { CustomComponent } from "./components";
 
 function App() {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello Vite + React!</p>
-        <p>
-          <Button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </Button>
-        </p>
-      </header>
-    </div>
-  );
+    return (
+        <CustomComponent as="div" className="App">
+            <CustomComponent as="header" className="App-header">
+                <CustomComponent as="h2">Hello Vite + React!</CustomComponent>
+                <CustomComponent as="p">
+                    <CustomComponent
+                        as="button"
+                        onClick={() => setCount(count + 1)}
+                    >
+                        Count: {count}
+                    </CustomComponent>
+                </CustomComponent>
+            </CustomComponent>
+        </CustomComponent>
+    );
 }
 
 export default App;
